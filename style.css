@@ -1,0 +1,171 @@
+html * {
+    overflow: hidden;
+    z-index: 1;
+}
+
+* {
+    font-family: "Nunito", serif, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "nav movies"
+        "footer footer"
+        "menuItem menuItem";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 5fr 1fr 0;
+}
+
+header {
+    background-color: rgb(56, 56, 56);
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header img {
+    height: 60%;
+    width: 30%;
+}
+
+#search {
+    width: 2.5%;
+    height: auto;
+    margin-right: 8%;
+}
+
+nav {
+    background-color: rgba(56, 56, 56, 0.8);
+    grid-area: nav;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+nav a {
+    color: white;
+    width: 100%;
+    height: 15%;
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a:hover {
+    background-color: rgba(153, 153, 153, 0.8);
+}
+
+.menuItem {
+    
+    grid-area: menuItem;
+    background-color: rgba(56, 56, 56, 0.8);
+}
+
+.movies {
+    grid-area: movies;
+    overflow: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.movies img {
+    width: 200px;
+    height: auto;
+    
+    grid-area: img;
+}
+
+.cnt {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: "img";
+    margin-top: 2%;
+    margin-right: 1%;
+}
+
+.cnt .overlay {
+    opacity: 0;
+    transition: .3s ease;
+    background-color: rgba(214, 214, 214, 0.918);
+    grid-area: img;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cnt .overlay p {
+    font-weight: 700;
+}
+
+.cnt:hover .overlay {
+    opacity: 1;
+}
+
+footer {
+    background-color: rgb(56, 56, 56);
+    grid-area: footer;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        grid-template-areas: 
+            "menuItem header"
+            "movies movies"
+            "footer footer"
+            "nav nav";
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: 1fr 5fr 1fr 0;
+    }
+
+    * {
+        font-size: 11px;
+    }
+
+    header {
+        justify-content: space-around;
+    }
+
+    #search {
+        width: 8%;
+        margin-right: 0;
+    }
+
+    nav {
+        display: absolute;
+        z-index: -2;
+    }
+
+    .menuItem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .movies img {
+        width: 100px;
+    }
+    
+    .menuItem img {
+        width: 65%;
+        height: auto;
+    }
+} 
